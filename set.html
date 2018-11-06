@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>管理</title>
+		<link rel="stylesheet" type="text/css" href="/static/CSS/set.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="/static/JS/jquery-3.3.1.min.js"/>-->
+        <script src="/static/JS/jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		welcome {{ uname }}
+
+
+		<a href="/fire/exit/" >exit</a>
+		<div class="box" align="center" ><font size="7">禾火自动化管理</font></div>
+		<div class="left_box" align="center"><font size="5">概览</font>
+			<br>
+            <p align="left" >CPU core numbers: {{ lscpu_core}}</p>
+			<p align="left" >memory total:{{ free_total }} MB</p>
+			<p align="left" >used memory:{{ free_used }}MB</p>
+			<br>
+		</div>
+
+
+
+		<div class="right_box">
+			<font size="5"><center>shell</center></font>
+
+			<form method="POST" action="/fire/set/shell_command/">
+				<font color="black">输入shell命令:&nbsp;</font>
+				<input type="text" size="50" name="shell_command" id="shell_command" />
+				<input type="submit" value="提交" id="print"/>
+				<p>result: <span id="result"></p>
+			</form>
+
+
+
+
+			<br>
+			<br>
+			<form method="post" action="">
+				<font color="black">上传shell脚本文件 &nbsp;</font>
+				<input type="file" name="shell_script"/>
+				<input type="submit" value="上传" />
+			</form>
+		</div>
+	</body>
+<script>
+            $("#print").click(function () {
+                $.post("/fire/set/shell_command/",
+				{
+				    shell_command: $("#shell_command").val(),
+				},
+
+                      function (data) {
+                    $("#result").html(data);
+
+                      });
+
+				return false;
+            });
+</script>
+</html>

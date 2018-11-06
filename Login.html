@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="Author" content="DSW">
+<meta name="Keywords" content="Login">
+<script type="text/javascript" src="/static/JS/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/CSS/background.css">
+<title>登陆页</title>
+</head>
+<body>
+
+<div class="allin">
+	<div class="image">
+		
+		<form action="/fire/Login/Login_handle/" method="post">
+
+			<div class="input_login">
+					用 户：<input type="text" name="uname" style="width:250px;height:24px;outline:none;"><br><br><br>
+					密 码：<input type="password" name="upwd" style="width:250px;height:24px;outline:none;"><br><br>
+				{{ error }}
+			</div>
+			<div class="submit">
+				<input type="submit" class="buttom1" value="登陆" ><!--鼠标经过时#4dc7ba-->
+	
+			</div>
+		</form>
+	</div>
+	<div class="world">禾火自动化管理系统</div>
+	<div class="world_Logi"></div>
+</div>
+</body>
+</html>
